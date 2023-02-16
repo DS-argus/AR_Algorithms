@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <set>
+#include <unordered_set>
 
 using namespace std;
 
@@ -17,9 +19,35 @@ bool containsDuplicate(vector<int>& nums) {
     return false;
 }
 
+//slower
+bool containsDuplicate2(vector<int>& nums) {
+    set<int> store;
+
+    for(auto i: nums){
+        if(store.count(i) == 1){
+            return true;
+        }else{
+            store.insert(i);
+        }
+    }
+    return false;
+}
+
+bool containsDuplicate3(vector<int>& nums) {
+    unordered_set<int> store;
+
+    for(auto i: nums){
+        if(store.count(i) == 1){
+            return true;
+        }else{
+            store.insert(i);
+        }
+    }
+    return false;
+}
+
 int main(){
-    vector<int> nums = { 1,2,3,4 };
-
-    cout << boolalpha << containsDuplicate(nums) << endl;
-
+    vector<int> nums = { 1,2,3,1 };
+    cout << "using unordered_set" << endl;
+    cout << boolalpha << containsDuplicate3(nums) << endl;
 }
