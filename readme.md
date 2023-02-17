@@ -4,6 +4,7 @@
 * **Leet code**
     * C++
         1. [#217] Contains Duplicate
+        2. [#242] Valid Anagram
 
 
 
