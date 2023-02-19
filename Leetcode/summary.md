@@ -26,3 +26,24 @@
     * **`priority_queue<pair<int,int>>pq`** 를 사용하면 편함
         * pair<int, int>는 앞에서부터 대소 비교
         * priority_queue는 큰 값이 위에 저장
+---
+6. Product of Array Except Self `238.py`, `238.cpp`
+    * 0이 2개 이상인 경우 / 0이 1개인 경우 / 0이 없는 경우로 나눠서 해결
+    * C++ 도 동일한 로직으로 작성
+        * <mark>C++ vector에서 원소 개수 셀 때 count 사용 : `count(nums.begin(), nums.end(), 0)`. python에서 `nums.count(0)`과 동일</mark>
+    * division을 사용안하면 dynamic programming으로 왼쪽 곱, 오른쪽 곱을 각각 리스트에 담아서 곱해주는 방법 사용 
+        * python : time O(n), space O(1)
+            ``` python
+                def productExceptSelf(self, nums):
+                    n, ans, suffix_prod = len(nums), [1]*len(nums), 1
+                    for i in range(1,n):
+                        ans[i] = ans[i-1] * nums[i-1]
+                    for i in range(n-1,-1,-1):
+                        ans[i] *= suffix_prod
+                        suffix_prod *= nums[i]
+                    return ans
+            ```
+---
+7. Longest Consecutive Sequence `128.cpp`
+    * 내 방법 : 빈 vector 입력되면 0 반환 --> map에 key로 저장해서 정렬 : O(log(n)) -->result 변수에 연속한 숫자 개수를 담고 끊기면 resultVector에 저장. resultVector에서 최댓값 찾기
+    * 좋은 방법 : set과 while문을 이용해서 찾는 방법 -> faster!
