@@ -47,3 +47,20 @@
 7. Longest Consecutive Sequence `128.cpp`
     * 내 방법 : 빈 vector 입력되면 0 반환 --> map에 key로 저장해서 정렬 : O(log(n)) -->result 변수에 연속한 숫자 개수를 담고 끊기면 resultVector에 저장. resultVector에서 최댓값 찾기
     * 좋은 방법 : set과 while문을 이용해서 찾는 방법 -> faster!
+---
+8. Valid Palindrome `125.cpp`
+    * 나는 ascii 코드표 보고 노가다. isalnum, toupper, two pointer 몰랐음
+    * `int isalnum(int c)` : 숫자 혹은 알파벳인지 체크
+        * 자매품 : `int isdigit(int c)` 숫자여부 체크, `int isalpha(int c)` 알파벳 여부 체크
+    * **<mark>Two pointer `for (int i = 0, j = s.size() - 1; i < j; i++, j--)`  : i와 j가 양끝에서 시작해서 만날 때까지 진행</mark>**
+    ```C++
+        bool isPalindrome(string s) {
+            for (int i = 0, j = s.size() - 1; i < j; i++, j--) { // Move 2 pointers from each end until they collide
+                while (isalnum(s[i]) == false && i < j) i++; // Increment left pointer if not alphanumeric
+                while (isalnum(s[j]) == false && i < j) j--; // Decrement right pointer if no alphanumeric
+                if (toupper(s[i]) != toupper(s[j])) return false; // Exit and return error if not match
+            }
+    
+           return true;
+        }
+    ```
