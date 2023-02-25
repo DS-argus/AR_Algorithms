@@ -64,3 +64,17 @@
            return true;
         }
     ```
+---
+9. Two Sum 2 - Input Array Sorted `167.cpp`
+    * 정렬이 되어 있기 때문에 양끝에서 범위를 좁힐 수 있음 --> **two pointer**
+    * 모범답안 가져옴
+    * 나는 그냥 twosum하고 동일하게 풀었음
+---
+10. 3sum `15.cpp`
+    * 정렬 후에 two sum 2를 이용해서 해결
+    * 찾았을 경우 또 있을 수 있으니 l++ 해줘야 함
+    * 참고 : https://youtu.be/jzZsG8n2R9A
+---
+11. Container With Most Water `11.cpp`
+    * two pointer 활용하는 문제로 특별한 건 없음
+---
