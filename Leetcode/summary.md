@@ -78,3 +78,18 @@
 11. Container With Most Water `11.cpp`
     * two pointer 활용하는 문제로 특별한 건 없음
 ---
+12. Best Time to Buy and Sell Stock `121.cpp`
+    * Sliding window
+    * 해설 봄... two pointer 이용하는 문제
+    * L = 0, R = 1로 시작
+    * <algorithm> 에 min, max 있다!
+---
+13. Best Time to Buy and Sell Stock II `122.cpp`
+    * 양수이면 모두 더하는 걸로 식 조금 변경
+    * 또한 양수이면 L, R 그 지점에서 다시 초기화 하도록 변경
+---
+14. Longest Substring Without Repeating Characters `3.cpp`
+    * Sliding window 
+    * string type에서 `.substr`로 문자열 slicing
+    * `substring.find(s[r]) != std::string::npos` 으로 문자열에 포함되는지 체크
+        * C++ 23에서는 s.contains 나온다고 함 
